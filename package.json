@@ -1,0 +1,22 @@
+{
+  "name": "login-system-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grandonbarcia/Login-System-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grandonbarcia/Login-System-Backend/issues"
+  },
+  "homepage": "https://github.com/grandonbarcia/Login-System-Backend#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
