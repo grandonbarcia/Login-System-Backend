@@ -8,7 +8,9 @@ var Joi    =   require('@hapi/joi'); //@hapi/joi
 var app = express();
 app.use(cors());
 app.use(express.json());
-app.listen(process.env.PORT || 8080 , () => console.log("Connection Sucessfull"));
+app.listen(process.env.PORT || 8080 , () => {
+  console.log("connection successfull");
+});
 
 var db = monk('mongodb://brandon123:brandon123@cluster0-shard-00-00-n5x5g.mongodb.net:27017,cluster0-shard-00-01-n5x5g.mongodb.net:27017,cluster0-shard-00-02-n5x5g.mongodb.net:27017/login-system?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true');
 var users = db.get('users');
@@ -79,7 +81,7 @@ app.post('/', function(req, res, next) {
       name: req.body.name.toString(),
       email: req.body.email.toString(),
       username: req.body.username.toString(),
-      pass: req.body.password.toString(),
+      password: req.body.password.toString(),
       date: new Date()
     };
 
@@ -101,6 +103,7 @@ app.post('/', function(req, res, next) {
         bcrypt.genSalt(10, function(err, salt) {
           bcrypt.hash(body.password, salt, function(err, hash) {
             body.password = hash;
+            console.log(body);
             users
               .insert(body)
               .then(createdBody => {
